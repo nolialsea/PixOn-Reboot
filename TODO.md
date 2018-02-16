@@ -1,8 +1,8 @@
 ## TODO
 
+#### Palettes
 - [x] Redo palette system
 
-Implement palettes :
 - [x] db32
 - [x] edg32
 - [x] arne32
@@ -11,4 +11,5 @@ Implement palettes :
 - [ ] pico8
 - [ ] comodore64
 
+#### Archives
 - [ ] Archive server image
