@@ -261,6 +261,7 @@ socket.on('rect', ({ x, y, width, height, color }) => {
 // TODO(flupe): add touch gestures
 //              apparently the Pointer API is far from mature yet
 on(window, 'mousemove', e => {
+  e.preventDefault()
   pointer.update(e)
   tool.dispatch('mousemove', e)
   viewport.update()
@@ -277,6 +278,31 @@ on(window, 'mouseup', e => {
   pointer.down = false
   tool.dispatch('mouseup', e)
 })
+
+if (window.addEventListener){
+  // IE9, Chrome, Safari, Opera
+  on(window, 'mousewheel', mouseWheelHandler)
+  // Firefox
+  on(window, 'DOMMouseScroll', mouseWheelHandler)
+}
+else{
+  // IE 6/7/8
+  window.attachEvent("onmousewheel", mouseWheelHandler);
+}
+
+function mouseWheelHandler(e){
+    // cross-browser wheel delta
+    var e = window.event || e; // old IE support
+    e.preventDefault()
+    var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+
+    if (e.shiftKey){
+      viewport.scale += delta > 0 ? 1 : -1
+      viewport.update()
+    }
+
+    return false;
+}
 
 on(window, 'keydown', e => {
   

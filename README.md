@@ -17,7 +17,7 @@ An archive is also generated and accessible at `localhost:9999/archive`
 
 ### Temporary shortcuts
 
-- `ctrl + plus` and `ctrl + minus` to change scale.
+- `ctrl + plus` and `ctrl + minus` or `shift+mouseWheel` to change scale.
 - `alt + mouse drag` to move the viewport around.
 - `+` and `-` to switch between multiple palettes (you can ask for more).
 - `f` to flip the viewport horizontally.

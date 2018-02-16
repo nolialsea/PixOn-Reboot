@@ -19,6 +19,7 @@
 - [ ] Visualise archive from precise date
 
 ### Tools
+- [x] Mouse wheel zooming
 - [ ] Pipette
 - [ ] Flood fill (bucket tool)
 - [ ] Resizable brush
