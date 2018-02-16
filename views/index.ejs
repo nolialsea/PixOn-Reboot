@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Pixel Online">
+        <meta name="author" content="Noli">
+        <meta name="author" content="flupe">
+        <title>PixOn</title>
+        <style>
+          body {
+              margin: 0;
+              padding: 0;
+              overflow: hidden;
+          }
+
+          #palette {
+            position: absolute;
+            width: 240px;
+            margin: 25px auto;
+            left: 0;
+            right: 0;
+            z-index: 2000;
+          }
+
+          .square {
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin: 5px;
+            cursor: pointer;
+          }
+
+          .square.primary {
+            border: 2px solid #fff;
+            margin: 3px;
+          }
+
+          .square.secondary:before {
+            content: " ";
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            z-index: -1;
+            border: 2px solid #777;
+          }
+        </style>
+    </head>
+    <body>
+        <div id="palette"></div>
+        <script src="dist/client.js"></script>
+        <script>
+          alert("ctrl + plus and ctrl + minus to change scale."+
+          "\nalt + mouse drag to move the viewport around."+
+          "\n+ and - to change between pals."+
+          "\nf to flip the viewport horizontally."+
+          "\nF to flip the viewport vertically."+
+          "\nb to select the pen tool (default)."+
+          "\nr to select the rectangle tool.");
+        </script>
+    </body>
+</html>

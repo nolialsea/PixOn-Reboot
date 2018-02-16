@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Pixel Online">
+        <meta name="author" content="Noli">
+        <title>PixOn</title>
+        <script src="views/jquery.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="views/bootstrap/css/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="views/bootstrap/css/bootstrap-theme.min.css">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="views/bootstrap/js/bootstrap.min.js"></script>
+        <script src="views/socketio.js"></script>
+    </head>
+
+    <style>
+        img{
+            border: 1px solid black;
+            width: 128px;
+            height: 128px;
+        }
+
+        .center{
+            padding: 0;
+            margin: auto;
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        div{
+            overflow-x: scroll;
+        }
+
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+    </style>
+
+    <body id="body">
+        <div id="container">
+            <% files.reverse() ;files.forEach((e)=>{ %>
+                <img src="<%= e %>" title="<%= new Date(parseInt(e.replace('.png', ''))) %>"/>
+            <% }) %>
+        </div>
+    </body>
+</html>
