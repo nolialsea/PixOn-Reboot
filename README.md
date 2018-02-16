@@ -13,6 +13,7 @@ npm run server
 ```
 
 The demo is accessible at `localhost:9999`.
+An archive is also generated and accessible at `localhost:9999/archive`
 
 ### Temporary shortcuts
 
@@ -23,3 +24,5 @@ The demo is accessible at `localhost:9999`.
 - `F` to flip the viewport vertically.
 - `b` to select the pen tool (default).
 - `r` to select the rectangle tool.
+
+### [TODO](https://github.com/nolialsea/PixOn-Reboot/blob/master/TODO.md)
