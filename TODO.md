@@ -12,4 +12,6 @@
 - [ ] comodore64
 
 #### Archives
-- [ ] Archive server image
+- [x] Save image on server every X seconds
+- [x] Load last image at server start
+- [ ] Archive server image every X pixel
