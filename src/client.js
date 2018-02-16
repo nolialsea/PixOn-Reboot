@@ -5,10 +5,6 @@ import Palette from './palette'
 const { round, max, min, floor, abs } = Math
 const on = (target, ...args) => target.addEventListener(...args)
 
-const WIDTH = 128
-const HEIGHT = 128
-
-
 const image = new Canvas(document.createElement('canvas'), WIDTH, HEIGHT)
 const socket = io.connect(window.location.host)
 
@@ -17,7 +13,6 @@ const socket = io.connect(window.location.host)
 
 let palette
 let squares =  []
-
 
 function loadPalette(pal) {
   palette = pal.map(([r, g, b]) => ({

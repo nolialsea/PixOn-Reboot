@@ -6,6 +6,7 @@
         <meta name="description" content="Pixel Online">
         <meta name="author" content="Noli">
         <meta name="author" content="flupe">
+        <link rel="shortcut icon" href="favicon.ico"/>
         <title>PixOn</title>
         <style>
           body {
@@ -51,7 +52,6 @@
     </head>
     <body>
         <div id="palette"></div>
-        <script src="dist/client.js"></script>
         <script>
           alert("ctrl + plus and ctrl + minus to change scale."+
           "\nalt + mouse drag to move the viewport around."+
@@ -61,5 +61,7 @@
           "\nb to select the pen tool (default)."+
           "\nr to select the rectangle tool.");
         </script>
+        <script><%- include('constants', {config}) %></script>
+        <script src="dist/client.js"></script>
     </body>
 </html>

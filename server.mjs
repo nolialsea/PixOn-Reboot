@@ -6,6 +6,7 @@ import express from 'express'
 import path from 'path'
 import fs from 'fs'
 import socketio from 'socket.io'
+import favicon from 'serve-favicon'
 
 const port = 9999
 const app = express()
@@ -24,14 +25,14 @@ loadImage("last_image.png")
 app.set('view engine', 'ejs')
 app.use('/dist', express.static('dist'))
 app.use('/archive', express.static('views/archive'));
-app.get('/', (req, res) => { res.render('index') })
+app.use(favicon('views/images/favicon.ico'));
+app.get('/', (req, res) => { res.render('index', {config}) })
 app.get('/archive', function(req, res) {
     const folder = './views/archive/';
 
     fs.readdir(folder, function(err, files){
       res.render('archive', {files});
     })
-    
 });
 
 function saveImage(path){
