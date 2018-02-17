@@ -13,7 +13,7 @@ npm run server
 ```
 
 The demo is accessible at `localhost:9999`.
-An archive is also generated and accessible at `localhost:9999/archive`
+An archive is also generated every X pixels and accessible at `localhost:9999/archive`.
 
 ### Temporary shortcuts
 

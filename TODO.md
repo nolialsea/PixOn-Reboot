@@ -13,7 +13,7 @@
 ### Archives
 - [x] Save image on server
 - [x] Load last image at server start
-- [ ] Archive server image every X pixel
+- [x] Archive server image every X pixel
 - [ ] Refine archives UI
 - [ ] Timelapse visualisation
 - [ ] Visualise archive from precise date

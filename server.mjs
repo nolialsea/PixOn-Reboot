@@ -18,6 +18,9 @@ const config = {
   height: 128,
 }
 
+let pixelCounter = 0
+let pixelBeforeSave = 1280
+
 const Image = Canvas.Image
 const image = new PixelCanvas(new Canvas, config.width, config.height)
 loadImage("last_image.png")
@@ -63,25 +66,30 @@ io.on('connection', socket => {
     let buf8 = new Uint8Array(image.buffer)
     buf8.set(input.buffer)
     socket.broadcast.emit('reload', input)
+    checkForSave(input.buffer.length/4)
   })
 
   socket.on('pixel', input => {
     let { x, y, color } = input
     image.pixel(x, y, color)
     socket.broadcast.emit('pixel', input)
+    checkForSave()
   })
 
   socket.on('rect', input => {
     let { x, y, width, height, color } = input
     image.rect(x, y, width, height, color)
     socket.broadcast.emit('rect', input)
+    checkForSave(width*height)
   })
 })
 
-function save(){
-  let timestamp = Date.now()
-  saveImage("last_image.png")
-  //saveImage("views/archive/"+timestamp+".png")
+function checkForSave(pixelCount=1){
+  pixelCounter += pixelCount
+  if (pixelCounter >= pixelBeforeSave){
+    let timestamp = Date.now()
+    saveImage("last_image.png")
+    saveImage("views/archive/"+timestamp+".png")
+    pixelCounter = 0
+  }
 }
-
-setInterval(save, 1000*10)
