@@ -19,7 +19,7 @@ const config = {
 }
 
 let pixelCounter = 0
-let pixelBeforeSave = 128
+let pixelBeforeSave = 16
 
 const Image = Canvas.Image
 const image = new PixelCanvas(new Canvas, config.width, config.height)
@@ -34,7 +34,7 @@ app.get('/archive', function(req, res) {
     const folder = './views/archive/';
 
     fs.readdir(folder, function(err, files){
-      res.render('archive', {files});
+      res.render('archive', {files, config});
     })
 });
 

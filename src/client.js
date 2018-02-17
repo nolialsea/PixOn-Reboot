@@ -9,6 +9,7 @@ const image = new Canvas(document.createElement('canvas'), WIDTH, HEIGHT)
 const socket = io.connect(window.location.host)
 
 let lastPixel = {x: -1, y: -1, color:null}
+const pointer = { x: 0, y: 0, down: false, onColor: false }
 
 // TODO(flupe): temporary, factor this out as soon as I can
 // (noli): some work done, still not right
@@ -44,6 +45,12 @@ function loadPalette(pal) {
       square.className += ' secondary'
     square.style.background = c.string
     container.appendChild(square)
+    on(square, 'mousedown', e => {
+      pointer.onColor = true
+    })
+    on(square, 'mouseup', e => {
+      pointer.onColor = false
+    })
     on(square, 'click', e => {
       e.preventDefault();
       if (e.ctrlKey) {
@@ -124,7 +131,7 @@ viewport.update = function() {
 document.body.appendChild(viewport.cvs)
 
 
-const pointer = { x: 0, y: 0, down: false }
+
 
 pointer.update = e => {
   let { cvs, offset, flip, scale } = viewport
@@ -151,7 +158,7 @@ function switchTool(next) {
 tool.pen = {
   init: _ => viewport.setCursor('crosshair'),
   mousemove: e => {
-    if (!pointer.down) return
+    if (!pointer.down || pointer.onColor) return
 
     let { cvs, offset, flip, scale } = viewport
     let { x, y } = pointer

@@ -22,6 +22,7 @@
 ### Fixes
 - [x] Send server config to client
 - [x] Avoid drawing two times the same pixel
+- [x] Prevent picking a color to draw pixels
 
 ### Palettes
 - [x] Redo palette system
