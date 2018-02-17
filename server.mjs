@@ -14,8 +14,8 @@ const server = app.listen(port)
 const io = socketio.listen(server)
 
 const config = {
-  width: 128,
-  height: 128,
+  width: 240,
+  height: 160,
 }
 
 let pixelCounter = 0

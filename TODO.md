@@ -1,5 +1,28 @@
 ## TODO
 
+### Archives
+- [x] Save image on server
+- [x] Load last image at server start
+- [x] Archive server image every X pixel
+- [x] Timelapse visualisation
+- [ ] Reverse timelapse
+- [ ] Refine archives UI
+- [ ] Visualise archive from precise date
+
+### Tools
+- [x] Mouse wheel zooming
+- [ ] Pipette
+- [ ] Flood fill (bucket tool)
+- [ ] Resizable brush
+
+### Mobile UX
+- [ ] Tool selection
+- [ ] Zoom and pan with multi-touch
+
+### Fixes
+- [x] Send server config to client
+- [x] Avoid drawing two times the same pixel
+
 ### Palettes
 - [x] Redo palette system
 - [x] DB32
@@ -8,7 +31,7 @@
 - [x] GAMEBOY4
 - [x] TWO_BIT_GRAYSCALE
 - [x] AAP64
-- [x] ARCADE_STANDARD_29
+- [x] ARCADE_STANDARD29
 - [x] CGA_2_HIGH
 - [x] CGA
 - [x] COMODORE64
@@ -33,27 +56,4 @@
 - [x] STARMANCER
 - [x] PRIO
 - [x] PICO
-- [ ] pal prio
-
-
-### Archives
-- [x] Save image on server
-- [x] Load last image at server start
-- [x] Archive server image every X pixel
-- [x] Timelapse visualisation
-- [ ] Reverse timelapse
-- [ ] Refine archives UI
-- [ ] Visualise archive from precise date
-
-### Tools
-- [x] Mouse wheel zooming
-- [ ] Pipette
-- [ ] Flood fill (bucket tool)
-- [ ] Resizable brush
-
-### Mobile UX
-- [ ] Tool selection
-- [ ] Zoom and pan with multi-touch
-
-### Fixes
-- [x] Send server config to client
+- [ ] PRIO

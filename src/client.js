@@ -8,6 +8,8 @@ const on = (target, ...args) => target.addEventListener(...args)
 const image = new Canvas(document.createElement('canvas'), WIDTH, HEIGHT)
 const socket = io.connect(window.location.host)
 
+let lastPixel = {x: -1, y: -1, color:null}
+
 // TODO(flupe): temporary, factor this out as soon as I can
 // (noli): some work done, still not right
 
@@ -155,8 +157,13 @@ tool.pen = {
     let { x, y } = pointer
 
     if (x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT) {
-      proxy.pixel(x, y, color(e.ctrlKey))
-      viewport.update()
+      if (lastPixel.x != x || lastPixel.y != y || lastPixel.color != color(e.ctrlKey)){
+        lastPixel.x = x
+        lastPixel.y = y
+        lastPixel.color = color(e.ctrlKey)
+        proxy.pixel(x, y, color(e.ctrlKey))
+        viewport.update()
+      }
     }
   },
   keydown: ({key}) => { if (key == 'Alt') switchTool(tool.translate) }

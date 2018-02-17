@@ -189,7 +189,7 @@ const PAL = {
 		[66, 57, 52],
 	],
 
-	ARCADE_STANDARD_29: [
+	ARCADE_STANDARD29: [
 		[241, 240, 238],
 		[255, 77, 77],
 		[159, 30, 49],
@@ -651,17 +651,15 @@ const PAL = {
 	],
 
 	//TODO
-	PRIO: [],
+	//PRIO: [],
 
 }
-
 
 let paletteId = 0
 let palettes = []
 for (let key in PAL) {
 	let pal = PAL[key]
 	pal.name = key
-	console.log("- [x] "+key);
     palettes.push(pal)
 }
 
