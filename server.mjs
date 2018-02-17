@@ -19,7 +19,7 @@ const config = {
 }
 
 let pixelCounter = 0
-let pixelBeforeSave = 1280
+let pixelBeforeSave = 128
 
 const Image = Canvas.Image
 const image = new PixelCanvas(new Canvas, config.width, config.height)

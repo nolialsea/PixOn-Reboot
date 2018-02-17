@@ -7,29 +7,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Pixel Online">
         <meta name="author" content="Noli">
-        <title>PixOn</title>
-        <script src="views/jquery.js"></script>
-        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="views/bootstrap/css/bootstrap.min.css">
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="views/bootstrap/css/bootstrap-theme.min.css">
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="views/bootstrap/js/bootstrap.min.js"></script>
-        <script src="views/socketio.js"></script>
+        <title>PixOn Archive</title>
     </head>
 
     <style>
         img{
             border: 1px solid black;
-            width: 128px;
-            height: 128px;
+            height: 100%;
+            display: none;
         }
 
         .center{
             padding: 0;
             margin: auto;
-            display: block;
             position: absolute;
             top: 0;
             bottom: 0;
@@ -49,10 +39,20 @@
     </style>
 
     <body id="body">
-        <div id="container">
-            <% files.reverse() ;files.forEach((e)=>{ %>
-                <img src="<%= e %>" title="<%= new Date(parseInt(e.replace('.png', ''))) %>"/>
-            <% }) %>
-        </div>
+        <% ;files.forEach((e)=>{ %>
+            <img src="<%= e %>" class="archive center" title="<%= new Date(parseInt(e.replace('.png', ''))) %>"/>
+        <% }) %>
+        <script>
+            let image = document.getElementsByClassName('archive')
+            let index = -1
+            let fps = parseInt(prompt("Speed (in FPS)", 2)) || 2
+
+            setInterval(()=>{
+                if (image[index]) image[index].style.display = 'none'
+                index++
+                index = index >= image.length ? 0 : index;
+                image[index].style.display = 'block'
+            }, 1000/fps)
+        </script>
     </body>
 </html>
