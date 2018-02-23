@@ -155,24 +155,27 @@ function switchTool(next) {
   tool.dispatch('init', previous)
 }
 
+function placePixel(e){
+  if (!pointer.down || pointer.onColor) return
+
+  let { cvs, offset, flip, scale } = viewport
+  let { x, y } = pointer
+
+  if (x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT) {
+    if (lastPixel.x != x || lastPixel.y != y || lastPixel.color != color(e.ctrlKey)){
+      lastPixel.x = x
+      lastPixel.y = y
+      lastPixel.color = color(e.ctrlKey)
+      proxy.pixel(x, y, color(e.ctrlKey))
+      viewport.update()
+    }
+  }
+}
+
 tool.pen = {
   init: _ => viewport.setCursor('crosshair'),
-  mousemove: e => {
-    if (!pointer.down || pointer.onColor) return
-
-    let { cvs, offset, flip, scale } = viewport
-    let { x, y } = pointer
-
-    if (x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT) {
-      if (lastPixel.x != x || lastPixel.y != y || lastPixel.color != color(e.ctrlKey)){
-        lastPixel.x = x
-        lastPixel.y = y
-        lastPixel.color = color(e.ctrlKey)
-        proxy.pixel(x, y, color(e.ctrlKey))
-        viewport.update()
-      }
-    }
-  },
+  mousemove: placePixel,
+  mousedown: placePixel,
   keydown: ({key}) => { if (key == 'Alt') switchTool(tool.translate) }
 }
 
